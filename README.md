@@ -1,2 +1,2 @@
 # Sonic Creator Ultimate
- An early mod loader for Sonic Colors Ultimate.
+ This is simply a mod loader/packer for Sonic Colors Ultimate.
