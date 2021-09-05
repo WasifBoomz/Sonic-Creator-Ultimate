@@ -7,3 +7,16 @@ C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic Creator Ultimate\ob
 C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic Creator Ultimate\obj\Debug\Sonic Creator Ultimate.csproj.GenerateResource.cache
 C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic Creator Ultimate\obj\Debug\Sonic Creator Ultimate.exe
 C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic Creator Ultimate\obj\Debug\Sonic Creator Ultimate.pdb
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\Sonic Creator Ultimate\bin\Debug\Sonic Creator Ultimate.exe.config
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\Sonic Creator Ultimate\bin\Debug\Sonic Creator Ultimate.exe
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\Sonic Creator Ultimate\bin\Debug\Sonic Creator Ultimate.pdb
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\Sonic Creator Ultimate\obj\Debug\Sonic_Creator_Ultimate.Form1.resources
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\Sonic Creator Ultimate\obj\Debug\Sonic_Creator_Ultimate.Properties.Resources.resources
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\Sonic Creator Ultimate\obj\Debug\Sonic Creator Ultimate.csproj.GenerateResource.cache
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\Sonic Creator Ultimate\obj\Debug\Sonic Creator Ultimate.exe
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\Sonic Creator Ultimate\obj\Debug\Sonic Creator Ultimate.pdb
+C:\Users\wasif\Documents\EpicGames\SonicColorsUltimate\Sonic Creator Ultimate.exe.config
+C:\Users\wasif\Documents\EpicGames\SonicColorsUltimate\Sonic Creator Ultimate.exe
+C:\Users\wasif\Documents\EpicGames\SonicColorsUltimate\Sonic Creator Ultimate.pdb
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\Sonic Creator Ultimate\obj\Debug\Sonic Creator Ultimate.csprojAssemblyReference.cache
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\Sonic Creator Ultimate\obj\Debug\Sonic Creator Ultimate.csproj.CopyComplete

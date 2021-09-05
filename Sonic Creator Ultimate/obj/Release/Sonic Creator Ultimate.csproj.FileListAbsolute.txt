@@ -1,0 +1,16 @@
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\Sonic Creator Ultimate\bin\Release\Sonic Creator Ultimate.exe.config
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\Sonic Creator Ultimate\bin\Release\Sonic Creator Ultimate.exe
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\Sonic Creator Ultimate\bin\Release\Sonic Creator Ultimate.pdb
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\Sonic Creator Ultimate\bin\Release\godotdec.exe
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\Sonic Creator Ultimate\bin\Release\INIFileParser.dll
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\Sonic Creator Ultimate\bin\Release\Bio.cs.dll
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\Sonic Creator Ultimate\bin\Release\INIFileParser.pdb
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\Sonic Creator Ultimate\bin\Release\INIFileParser.xml
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\Sonic Creator Ultimate\bin\Release\godotdec.exe.config
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\Sonic Creator Ultimate\obj\Release\Sonic Creator Ultimate.csprojAssemblyReference.cache
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\Sonic Creator Ultimate\obj\Release\Sonic_Creator_Ultimate.Form1.resources
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\Sonic Creator Ultimate\obj\Release\Sonic_Creator_Ultimate.Properties.Resources.resources
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\Sonic Creator Ultimate\obj\Release\Sonic Creator Ultimate.csproj.GenerateResource.cache
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\Sonic Creator Ultimate\obj\Release\Sonic Creator Ultimate.csproj.CopyComplete
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\Sonic Creator Ultimate\obj\Release\Sonic Creator Ultimate.exe
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\Sonic Creator Ultimate\obj\Release\Sonic Creator Ultimate.pdb

@@ -1,0 +1,5 @@
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\lib\INIFileParser.xml
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\lib\INIFileParser.dll
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\lib\INIFileParser.pdb
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\IniFileParser\obj\Release\INIFileParser.dll
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\IniFileParser\obj\Release\INIFileParser.pdb

@@ -1,0 +1,5 @@
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\IniFileParser\bin\Debug\INIFileParser.dll
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\IniFileParser\bin\Debug\INIFileParser.pdb
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\IniFileParser\obj\Debug\INIFileParser.csprojAssemblyReference.cache
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\IniFileParser\obj\Debug\INIFileParser.dll
+C:\Users\wasif\Documents\GitHub\Sonic Creator Ultimate\Sonic-Creator-Ultimate\IniFileParser\obj\Debug\INIFileParser.pdb

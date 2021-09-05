@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29324.140
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sonic Creator Ultimate", "Sonic Creator Ultimate\Sonic Creator Ultimate.csproj", "{03995CFA-A0D8-4801-9DE2-B290AA737D5F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INIFileParser", "IniFileParser\INIFileParser.csproj", "{5E46DCF4-C473-4171-9F9B-F3910B5EC407}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{03995CFA-A0D8-4801-9DE2-B290AA737D5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03995CFA-A0D8-4801-9DE2-B290AA737D5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03995CFA-A0D8-4801-9DE2-B290AA737D5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E46DCF4-C473-4171-9F9B-F3910B5EC407}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E46DCF4-C473-4171-9F9B-F3910B5EC407}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E46DCF4-C473-4171-9F9B-F3910B5EC407}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E46DCF4-C473-4171-9F9B-F3910B5EC407}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
