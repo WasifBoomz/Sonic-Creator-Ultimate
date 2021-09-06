@@ -28,7 +28,7 @@ namespace Sonic_Creator_Ultimate
             }
             InitializeComponent();
             LoadData();
-            RefreshList();
+            RefreshMods();
         }
         void RefreshMods()
         {
