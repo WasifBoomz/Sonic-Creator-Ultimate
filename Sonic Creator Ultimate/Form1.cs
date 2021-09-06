@@ -87,7 +87,7 @@ namespace Sonic_Creator_Ultimate
             List<string> mod = new List<string>();
             for (int i = 0; i < Mods.Count; i++)
             {
-                mod.Add(Mods[i].Name.PadRight(15) + "     " + Mods[i].Description.PadRight(20) + "     " + Mods[i].Version.PadRight(15) + "     " + Mods[i].Creator.PadRight(15));
+                mod.Add(Mods[i].Name.PadRight(15) + " " + Mods[i].Description.PadRight(20) + " " + Mods[i].Version.PadRight(15) + " " + Mods[i].Creator.PadRight(15));
                 checkedListBox1.Items.Insert(i, mod[i]);
             }
         }
@@ -302,6 +302,11 @@ namespace Sonic_Creator_Ultimate
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             SaveData();
+        }
+
+        private void progressBar1_Click(object sender, EventArgs e)
+        {
+
         }
     }
     public class Mod
