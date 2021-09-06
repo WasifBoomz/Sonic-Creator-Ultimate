@@ -192,76 +192,24 @@ namespace Sonic_Creator_Ultimate
         {
             p.Clear();
             SaveData();
-            List<Mod> mo = new List<Mod>();
-            foreach(Mod m in Mods)
-            {
-                if (m.Checked)
-                {
-                    mo.Add(m);
-                }
-            }
-            for (int k = 0; k <= 7; k++)
-            {
-                bool a = false;
-                foreach (Mod m in mo)
-                {
-                    foreach (string c in Directory.GetFiles(m.Path))
-                    {
-                        if (c.Contains(k.ToString()))
-                        {
-                            a = true;
-                        }
-                    }
-                    foreach (string c in Directory.GetDirectories(m.Path))
-                    {
-                        if (c.Contains(k.ToString()))
-                        {
-                            a = true;
-                        }
-                    }
-                }
-                if (a)
-                {
-                    p.Add(Process.Start("godotpcktool", Application.StartupPath + "/content/acorn/Backup/sonic" + k + ".pck -a e -o sonic" + k));
-                }
-            }
-            foreach(Process pro in p)
-            {
-                pro.WaitForExit();
-            }
             for (int i= 0; i < Mods.Count; i++)
             {
                 if (checkedListBox1.GetItemChecked(i))
                 {
-                    foreach(string s in Directory.GetDirectories(Mods[i].Path))
+                    for (int k = 0; k <= 7; k++)
                     {
-                        DirectoryInfo d1 = new DirectoryInfo(s);
-                        DirectoryInfo d2 = new DirectoryInfo(Application.StartupPath+"/"+d1.Name);
-                        CopyAll(d1, d2);
+                        if (Directory.Exists(Mods[i].Path + "/sonic" + k))
+                        {
+                            p.Add(Process.Start("godotpcktool", Application.StartupPath+"/content/acorn/sonic"+k+".pck -a a "+Mods[i].Path+"/sonic"+k+ " --remove-prefix " + Mods[i].Path + "/sonic" + k));
+                        }
                     }
-                }
-            }
-            p.Clear();
-            for(int i =0; i <= 7; i++)
-            {
-                if (Directory.Exists(Application.StartupPath + "/sonic" + i))
-                {
-                    File.Delete(Application.StartupPath + "/content/acorn/sonic" + i+".pck");
-                    p.Add(Process.Start("godotpcktool", Application.StartupPath + "/content/acorn/sonic"+i+".pck -a a sonic"+i+" --remove-prefix sonic"+i));
                 }
             }
             foreach (Process pro in p)
             {
                 pro.WaitForExit();
             }
-            for (int i = 0; i <= 7; i++)
-            {
-                if (Directory.Exists(Application.StartupPath + "/sonic" + i))
-                {
-                    //Empty(new DirectoryInfo(Application.StartupPath + "/sonic" + i));
-                    //Directory.Delete(Application.StartupPath + "/sonic" + i);
-                }
-            }
+
                     if (play)
             {
                 Play();
