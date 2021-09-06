@@ -104,12 +104,12 @@ namespace Sonic_Creator_Ultimate
             }
             if (Directory.Exists(Application.StartupPath + "/content/acorn/Backup"))
             {
-                pictureBox3.Image = Sonic_Creator_Ultimate.Properties.Resources.MenuRestore;
+                Restore.Text = "Restore";
             }
             else
             {
                 MessageBox.Show("Backup folder does not exist inside \"SonicColorsUltimate/content/acorn\" folder! Creating one now! Please note that the program will take a little while to show up.");
-                pictureBox3.Image = Sonic_Creator_Ultimate.Properties.Resources.MenuBackup;
+                Restore.Text = "Backup";
                 Backup();
             }
             System.Threading.Thread.Sleep(1000);
@@ -135,7 +135,7 @@ namespace Sonic_Creator_Ultimate
                     file.MoveTo(Application.StartupPath + "/content/acorn/" + file.Name);
                 }
                 Directory.Delete(Application.StartupPath + "/content/acorn/Backup");
-                pictureBox3.Image = Sonic_Creator_Ultimate.Properties.Resources.MenuBackup;
+                Restore.Text = "Backup";
             }
             else
             {
@@ -146,7 +146,7 @@ namespace Sonic_Creator_Ultimate
                     File.Copy(Application.StartupPath + "/content/acorn/sonic" + i + ".pck", Application.StartupPath + "/content/acorn/Backup/sonic" + i + ".pck");
                 }
                 progressBar1.Value = 0;
-                pictureBox3.Image = Sonic_Creator_Ultimate.Properties.Resources.MenuRestore;
+                Restore.Text = "Restore";
             }
         }
 
