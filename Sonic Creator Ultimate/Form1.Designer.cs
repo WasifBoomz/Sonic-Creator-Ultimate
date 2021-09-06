@@ -31,8 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.Browser = new System.Windows.Forms.FolderBrowserDialog();
-            this.progressBar2 = new System.Windows.Forms.ProgressBar();
-            this.progressBar3 = new System.Windows.Forms.ProgressBar();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -63,25 +61,7 @@
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(1094, 380);
             this.checkedListBox1.TabIndex = 0;
-            // 
-            // progressBar2
-            // 
-            this.progressBar2.BackColor = System.Drawing.Color.Black;
-            this.progressBar2.Location = new System.Drawing.Point(730, 611);
-            this.progressBar2.Maximum = 1000;
-            this.progressBar2.Name = "progressBar2";
-            this.progressBar2.Size = new System.Drawing.Size(256, 32);
-            this.progressBar2.TabIndex = 5;
-            // 
-            // progressBar3
-            // 
-            this.progressBar3.BackColor = System.Drawing.Color.Black;
-            this.progressBar3.Location = new System.Drawing.Point(730, 573);
-            this.progressBar3.Maximum = 1000;
-            this.progressBar3.Name = "progressBar3";
-            this.progressBar3.Size = new System.Drawing.Size(256, 32);
-            this.progressBar3.TabIndex = 6;
-            this.progressBar3.Click += new System.EventHandler(this.progressBar3_Click);
+            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
             // progressBar1
             // 
@@ -224,8 +204,6 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.progressBar3);
-            this.Controls.Add(this.progressBar2);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.checkedListBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -248,8 +226,6 @@
 
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.FolderBrowserDialog Browser;
-        private System.Windows.Forms.ProgressBar progressBar2;
-        private System.Windows.Forms.ProgressBar progressBar3;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;

@@ -8,14 +8,17 @@ using System.Linq;
 using System.Text;
 using IniParser;
 using IniParser.Model;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Xml;
+using System.Xml.Serialization;
 namespace Sonic_Creator_Ultimate
 {
     public partial class Form1 : Form
     {
         List<Mod> Mods = new List<Mod>();
+        List<Process> p = new List<Process>();
         public Form1()
         {
             if (new DirectoryInfo(Application.StartupPath).Name != "SonicColorsUltimate")
@@ -24,7 +27,8 @@ namespace Sonic_Creator_Ultimate
                 Application.Exit();
             }
             InitializeComponent();
-            RefreshMods();
+            LoadData();
+            RefreshList();
         }
         void RefreshMods()
         {
@@ -33,46 +37,48 @@ namespace Sonic_Creator_Ultimate
             {
                 if (File.Exists(dir + "/mod.ini"))
                 {
+                    List<Mod> mo = new List<Mod>();
                     var parser = new FileIniDataParser();
                     IniData ini = parser.ReadFile(dir + "/mod.ini");
                     Mod m = new Mod();
-                        
-                        if (ini.TryGetKey("Description", out string re1))
+
+                    if (ini.TryGetKey("Description", out string re1))
+                    {
+                        if (re1.Length > 20)
                         {
-                            if (re1.Length > 20)
-                            {
-                                re1 = re1.Substring(0, 20);
-                            }
-                            m.Description = re1;
+                            re1 = re1.Substring(0, 20);
                         }
-                        if (ini.TryGetKey("Author", out string re2))
+                        m.Description = re1;
+                    }
+                    if (ini.TryGetKey("Author", out string re2))
+                    {
+                        if (re2.Length > 15)
                         {
-                            if (re2.Length > 15)
-                            {
-                                re2 = re2.Substring(0, 15);
-                            }
-                            m.Creator = re2;
+                            re2 = re2.Substring(0, 15);
                         }
-                        if (ini.TryGetKey("Version", out string re3))
+                        m.Creator = re2;
+                    }
+                    if (ini.TryGetKey("Version", out string re3))
+                    {
+                        if (re3.Length > 15)
                         {
-                            if (re3.Length > 15)
-                            {
-                                re3 = re3.Substring(0, 15);
-                            }
-                            m.Version = re3;
+                            re3 = re3.Substring(0, 15);
                         }
-                        if (ini.TryGetKey("Name", out string re4))
+                        m.Version = re3;
+                    }
+                    if (ini.TryGetKey("Name", out string re4))
+                    {
+                        if (re4.Length > 15)
                         {
-                            if (re4.Length > 15)
-                            {
-                                re4 = re4.Substring(0, 15);
-                            }
-                            m.Name = re4;
-                            m.Path = dir;
-                            Mods.Add(m);
+                            re4 = re4.Substring(0, 15);
                         }
+                        m.Name = re4;
+                        m.Path = dir;
+                        Mods.Add(m);
+                    }
                 }
             }
+            SaveData();
             RefreshList();
         }
         void RefreshList()
@@ -87,7 +93,10 @@ namespace Sonic_Creator_Ultimate
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+            for (int i = 0; i < Mods.Count; i++)
+            {
+                checkedListBox1.SetItemChecked(i, Mods[i].Checked);
+            }
             if (!Directory.Exists(Application.StartupPath + "/mods"))
             {
                 MessageBox.Show("Mods folder does not exist! Creating folder!");
@@ -158,12 +167,141 @@ namespace Sonic_Creator_Ultimate
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-
+            if (Directory.Exists(Application.StartupPath + "/content/acorn/Backup"))
+            {
+                Save(false);
+            }
+            else
+            {
+                MessageBox.Show("No extracted files!");
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            if (Directory.Exists(Application.StartupPath + "/content/acorn/Backup"))
+            {
+                Save(true);
+            }
+            else
+            {
+                MessageBox.Show("No extracted files!");
+            }
+        }
+        void Save(bool play)
+        {
+            p.Clear();
+            SaveData();
+            List<Mod> mo = new List<Mod>();
+            foreach(Mod m in Mods)
+            {
+                if (m.Checked)
+                {
+                    mo.Add(m);
+                }
+            }
+            for (int k = 0; k <= 7; k++)
+            {
+                bool a = false;
+                foreach (Mod m in mo)
+                {
+                    foreach (string c in Directory.GetFiles(m.Path))
+                    {
+                        if (c.Contains(k.ToString()))
+                        {
+                            a = true;
+                        }
+                    }
+                    foreach (string c in Directory.GetDirectories(m.Path))
+                    {
+                        if (c.Contains(k.ToString()))
+                        {
+                            a = true;
+                        }
+                    }
+                }
+                if (a)
+                {
+                    p.Add(Process.Start("godotpcktool", Application.StartupPath + "/content/acorn/Backup/sonic" + k + ".pck -a e -o sonic" + k));
+                }
+            }
+            foreach(Process pro in p)
+            {
+                pro.WaitForExit();
+            }
+            for (int i= 0; i < Mods.Count; i++)
+            {
+                if (checkedListBox1.GetItemChecked(i))
+                {
+                    foreach(string s in Directory.GetDirectories(Mods[i].Path))
+                    {
+                        DirectoryInfo d1 = new DirectoryInfo(s);
+                        DirectoryInfo d2 = new DirectoryInfo(Application.StartupPath+"/"+d1.Name);
+                        CopyAll(d1, d2);
+                    }
+                }
+            }
+            p.Clear();
+            for(int i =0; i <= 7; i++)
+            {
+                if (Directory.Exists(Application.StartupPath + "/sonic" + i))
+                {
+                    File.Delete(Application.StartupPath + "/content/acorn/sonic" + i+".pck");
+                    p.Add(Process.Start("godotpcktool", Application.StartupPath + "/content/acorn/sonic"+i+".pck -a a sonic"+i+" --remove-prefix sonic"+i));
+                }
+            }
+            foreach (Process pro in p)
+            {
+                pro.WaitForExit();
+            }
+            for (int i = 0; i <= 7; i++)
+            {
+                if (Directory.Exists(Application.StartupPath + "/sonic" + i))
+                {
+                    //Empty(new DirectoryInfo(Application.StartupPath + "/sonic" + i));
+                    //Directory.Delete(Application.StartupPath + "/sonic" + i);
+                }
+            }
+                    if (play)
+            {
+                Play();
+            }
+        }
+        public static void Empty(System.IO.DirectoryInfo directory)
+        {
+            foreach (System.IO.FileInfo file in directory.GetFiles()) file.Delete();
+            foreach (System.IO.DirectoryInfo subDirectory in directory.GetDirectories()) subDirectory.Delete(true);
+        }
+        public static void CopyAll(DirectoryInfo source, DirectoryInfo target)
+        {
+            if (source.FullName.ToLower() == target.FullName.ToLower())
+            {
+                return;
+            }
 
+            // Check if the target directory exists, if not, create it.
+            if (Directory.Exists(target.FullName) == false)
+            {
+                Directory.CreateDirectory(target.FullName);
+            }
+
+            // Copy each file into it's new directory.
+            foreach (FileInfo fi in source.GetFiles())
+            {
+                fi.CopyTo(Path.Combine(target.ToString(), fi.Name), true);
+            }
+
+            // Copy each subdirectory using recursion.
+            foreach (DirectoryInfo diSourceSubDir in source.GetDirectories())
+            {
+                DirectoryInfo nextTargetSubDir =
+                    target.CreateSubdirectory(diSourceSubDir.Name);
+                CopyAll(diSourceSubDir, nextTargetSubDir);
+            }
+        }
+        void Play()
+        {
+            Process.Start(Application.StartupPath + "/rainbow Shipping/Sonic Colors - Ultimate.exe", "-epicportal");
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
@@ -174,6 +312,7 @@ namespace Sonic_Creator_Ultimate
                 Mods[checkedListBox1.SelectedIndex - 1] = Mods[checkedListBox1.SelectedIndex];
                 Mods[checkedListBox1.SelectedIndex] = m;
                 RefreshList();
+                SaveData();
             }
         }
 
@@ -185,16 +324,45 @@ namespace Sonic_Creator_Ultimate
                 Mods[checkedListBox1.SelectedIndex + 1] = Mods[checkedListBox1.SelectedIndex];
                 Mods[checkedListBox1.SelectedIndex] = m;
                 RefreshList();
+                SaveData();
             }
         }
-    }
+        void SaveData()
+        {
+            XmlSerializer x = new XmlSerializer(Mods.GetType());
+            StreamWriter st = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/Sonic Colors/Mods.xml");
+            for(int i = 0; i < checkedListBox1.Items.Count; i++)
+            {
+                    Mods[i].Checked = checkedListBox1.GetItemChecked(i);
+            }
+            x.Serialize(st, Mods);
+            st.WriteLine();
+            st.Close();
+        }
+        void LoadData()
+        {
+            if(File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/Sonic Colors/Mods.xml"))
+            {
+                XmlSerializer x = new XmlSerializer(Mods.GetType());
+                StreamReader st = new StreamReader(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/Sonic Colors/Mods.xml");
+                Mods = (List<Mod>)x.Deserialize(st);
+                RefreshList();
+                st.Close();
+            }
+        }
 
-    class Mod
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SaveData();
+        }
+    }
+    public class Mod
     {
         public string Name;
         public string Description;
         public string Creator;
         public string Version;
         public string Path;
+        public bool Checked;
     }
 }
