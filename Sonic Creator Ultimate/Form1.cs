@@ -200,7 +200,7 @@ namespace Sonic_Creator_Ultimate
                     {
                         if (Directory.Exists(Mods[i].Path + "/sonic" + k))
                         {
-                            p.Add(Process.Start("godotpcktool", Application.StartupPath+"/content/acorn/sonic"+k+".pck -a a "+Mods[i].Path+"/sonic"+k+ " --remove-prefix " + Mods[i].Path + "/sonic" + k));
+                            p.Add(Process.Start("godotpcktool", "\""+Application.StartupPath+"/content/acorn/sonic"+k+ ".pck\" -a a \"" + Mods[i].Path+"/sonic"+k+ "\" --remove-prefix \"" + Mods[i].Path + "/sonic" + k+ "\""));
                         }
                     }
                 }
