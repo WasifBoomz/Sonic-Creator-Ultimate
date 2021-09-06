@@ -32,6 +32,11 @@ namespace Sonic_Creator_Ultimate
         }
         void RefreshMods()
         {
+            List<Mod> Original = new List<Mod>();
+            foreach(Mod moo in Mods)
+            {
+                Original.Add(moo);
+            }
             Mods.Clear();
             foreach(string dir in Directory.GetDirectories(Application.StartupPath + "/mods"))
             {
@@ -78,6 +83,18 @@ namespace Sonic_Creator_Ultimate
                     }
                 }
             }
+            for(int i= 0; i < Mods.Count; i++)
+            {
+                for(int k = 0; k < Original.Count; k++)
+                {
+                    if (Original[k].Path == Mods[i].Path&&k!=i)
+                    {    
+                        Mod m = Mods[k];
+                        Mods[k] = Original[k];
+                        Mods[i] = m;
+                    }
+                }
+            }
             SaveData();
             RefreshList();
         }
@@ -89,6 +106,10 @@ namespace Sonic_Creator_Ultimate
             {
                 mod.Add(Mods[i].Name.PadRight(15) + " " + Mods[i].Description.PadRight(20) + " " + Mods[i].Version.PadRight(15) + " " + Mods[i].Creator.PadRight(15));
                 checkedListBox1.Items.Insert(i, mod[i]);
+            }
+            for (int i = 0; i < checkedListBox1.Items.Count; i++)
+            {
+                checkedListBox1.SetItemChecked(i, Mods[i].Checked);
             }
         }
         private void Form1_Load(object sender, EventArgs e)
@@ -162,7 +183,7 @@ namespace Sonic_Creator_Ultimate
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            RefreshMods();
+
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -179,14 +200,7 @@ namespace Sonic_Creator_Ultimate
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            if (Directory.Exists(Application.StartupPath + "/content/acorn/Backup"))
-            {
-                Save(true);
-            }
-            else
-            {
-                MessageBox.Show("No extracted files!");
-            }
+
         }
         void Save(bool play)
         {
@@ -200,6 +214,7 @@ namespace Sonic_Creator_Ultimate
                     {
                         if (Directory.Exists(Mods[i].Path + "/sonic" + k))
                         {
+                            File.Copy(Application.StartupPath + "/content/acorn/Backup/sonic" + k+".pck", Application.StartupPath + "/content/acorn/sonic" + k + ".pck", true);
                             p.Add(Process.Start("godotpcktool", "\""+Application.StartupPath+"/content/acorn/sonic"+k+ ".pck\" -a a \"" + Mods[i].Path+"/sonic"+k+ "\" --remove-prefix \"" + Mods[i].Path + "/sonic" + k+ "\""));
                         }
                     }
@@ -256,9 +271,17 @@ namespace Sonic_Creator_Ultimate
         {
             if (checkedListBox1.SelectedIndex-1>-1 && checkedListBox1.SelectedIndex != -1)
             {
+                for (int i = 0; i < checkedListBox1.Items.Count; i++)
+                {
+                    Mods[i].Checked = checkedListBox1.GetItemChecked(i);
+                }
                 Mod m = Mods[checkedListBox1.SelectedIndex - 1];
                 Mods[checkedListBox1.SelectedIndex - 1] = Mods[checkedListBox1.SelectedIndex];
                 Mods[checkedListBox1.SelectedIndex] = m;
+                for (int i = 0; i < checkedListBox1.Items.Count; i++)
+                {
+                    checkedListBox1.SetItemChecked(i, Mods[i].Checked);
+                }
                 RefreshList();
                 SaveData();
             }
@@ -268,6 +291,10 @@ namespace Sonic_Creator_Ultimate
         {
             if (checkedListBox1.SelectedIndex + 1 < checkedListBox1.Items.Count&&checkedListBox1.SelectedIndex!=-1)
             {
+                for (int i = 0; i < checkedListBox1.Items.Count; i++)
+                {
+                    Mods[i].Checked = checkedListBox1.GetItemChecked(i);
+                }
                 Mod m = Mods[checkedListBox1.SelectedIndex + 1];
                 Mods[checkedListBox1.SelectedIndex + 1] = Mods[checkedListBox1.SelectedIndex];
                 Mods[checkedListBox1.SelectedIndex] = m;
@@ -307,6 +334,40 @@ namespace Sonic_Creator_Ultimate
         private void progressBar1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Restore_Click(object sender, EventArgs e)
+        {
+            Backup();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            RefreshMods();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (Directory.Exists(Application.StartupPath + "/content/acorn/Backup"))
+            {
+                Save(false);
+            }
+            else
+            {
+                MessageBox.Show("No backed-up files!");
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (Directory.Exists(Application.StartupPath + "/content/acorn/Backup"))
+            {
+                Save(true);
+            }
+            else
+            {
+                MessageBox.Show("No backed-up files!");
+            }
         }
     }
     public class Mod

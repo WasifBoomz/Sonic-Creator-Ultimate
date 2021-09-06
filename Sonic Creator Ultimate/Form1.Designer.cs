@@ -122,12 +122,13 @@
             this.Restore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Restore.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Bold);
             this.Restore.ForeColor = System.Drawing.Color.White;
-            this.Restore.Location = new System.Drawing.Point(3, 687);
+            this.Restore.Location = new System.Drawing.Point(0, 686);
             this.Restore.Name = "Restore";
             this.Restore.Size = new System.Drawing.Size(145, 101);
             this.Restore.TabIndex = 0;
             this.Restore.Text = "Restore";
             this.Restore.UseVisualStyleBackColor = false;
+            this.Restore.Click += new System.EventHandler(this.Restore_Click);
             // 
             // button1
             // 
@@ -136,12 +137,13 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(154, 687);
+            this.button1.Location = new System.Drawing.Point(155, 686);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(145, 101);
             this.button1.TabIndex = 15;
             this.button1.Text = "Reload";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -150,12 +152,13 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(305, 687);
+            this.button2.Location = new System.Drawing.Point(310, 686);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(145, 101);
             this.button2.TabIndex = 16;
             this.button2.Text = "Save";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -164,12 +167,13 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Bold);
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(456, 686);
+            this.button3.Location = new System.Drawing.Point(465, 686);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(145, 101);
             this.button3.TabIndex = 17;
             this.button3.Text = "Save And Play";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
