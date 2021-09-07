@@ -11,8 +11,8 @@ using IniParser.Model;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
 using System.Xml.Serialization;
+using System.Net;
 namespace Sonic_Creator_Ultimate
 {
     public partial class Form1 : Form
@@ -88,10 +88,13 @@ namespace Sonic_Creator_Ultimate
                 for(int k = 0; k < Original.Count; k++)
                 {
                     if (Original[k].Path == Mods[i].Path&&k!=i)
-                    {    
-                        Mod m = Mods[k];
-                        Mods[k] = Original[k];
-                        Mods[i] = m;
+                    {
+                        if (k <= i)
+                        {
+                            Mod m = Mods[k];
+                            Mods[k] = Original[k];
+                            Mods[i] = m;
+                        }
                     }
                 }
             }
@@ -251,7 +254,10 @@ namespace Sonic_Creator_Ultimate
             // Copy each file into it's new directory.
             foreach (FileInfo fi in source.GetFiles())
             {
-                fi.CopyTo(Path.Combine(target.ToString(), fi.Name), true);
+                if (fi.Name != "Updater.exe")
+                {
+                    fi.CopyTo(Path.Combine(target.ToString(), fi.Name), true);
+                }
             }
 
             // Copy each subdirectory using recursion.
